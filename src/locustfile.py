@@ -114,10 +114,14 @@ class OakTrustTester(FastHttpUser):
             random_article,
             name="Get Article API Response by UUID"
         ).json()
-        # @todo: Fix this.  Something is wrong.
         bundles = self.client.get(article_response.get('_links')['bundles']['href'], name="Get Bundle API Response")
         random_bundle = random.choice(bundles.json()['_embedded']['bundles'])
-        self.client.get(f"{self.host}/bitstream/{random_bundle['uuid']}/download", name="Download Random Bitstream")
+        random_bundle_response = self.client.get(
+            f"{self.host}/server/api/core/bundles/{random_bundle['uuid']}/bitstreams",
+            name="Get Random Bundle's Bitstreams"
+        ).json()
+        random_bitstream = random.choice(random_bundle_response['_embedded']['bitstreams'])
+        self.client.get(f"{self.host}/bitstreams/{random_bitstream['uuid']}/download", name="Download Random Bitstream")
 
 
 @events.init.add_listener

@@ -31,6 +31,7 @@ value.  Currently, the tasks are:
 
 * get_collections: Uses the API to randomly choose a collection and request the corresponding URL
 * lookup_authors: Uses the search API to randomly select an author and its publications and request them all.
+* download_bitstreams: Uses the search API to randomly request and attempt to download a bitstream.
 
 If not specified, the default value is `get_collections` only.
 
