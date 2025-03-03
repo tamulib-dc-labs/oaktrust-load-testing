@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "oaktrust-load-test"
+version = "0.1.0"
+description = ""
+authors = ["Mark Baggett <markpbaggett@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+locust = "^2.33.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
